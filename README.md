@@ -1,4 +1,4 @@
-## Justificación de Decisiones de Diseño (OOP)
+## Justificación de Decisiones de Diseño (POO)
 
 En el diseño de este Sistema de Biblioteca, se optó por una arquitectura basada en **Interfaces** y **Clases Abstractas** para maximizar la reutilización de código, aplicar correctamente el polimorfismo y respetar los principios de la Programación Orientada a Objetos.
 
