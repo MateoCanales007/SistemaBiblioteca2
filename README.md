@@ -1,20 +1,44 @@
+# Sistema de Gestión de Biblioteca 📚
+
+Este proyecto es una simulación de un sistema de biblioteca desarrollado en Java, aplicando los pilares de la Programación Orientada a Objetos (OOP), específicamente el uso de Clases Abstractas, Interfaces y Polimorfismo.
+
+## Distribución
+
+Para mantener un flujo de trabajo ordenado en GitHub, las tareas se han dividido de la siguiente manera:
+
+* **Mateo (Integrador):** * Configuración inicial del repo.
+    * Desarrollo de la interfaz base `Prestable`.
+    * Desarrollo de la clase abstracta `RecursoBiblioteca`.
+    * *Responsabilidad:* Revisión y unión (Merge) de todas las ramas al `main` para evitar conflictos.
+* **Compañero 2 (Desarrollo Core):**
+    * Desarrollo de las clases concretas `Libro` y `Revista`.
+    * Implementación de la lógica específica de préstamos y devoluciones para estos recursos bibliográficos.
+* **Compañero 3 (Desarrollo y Lógica Principal):**
+    * Desarrollo de la clase concreta `DVD`.
+    * Desarrollo de la clase `Main`.
+    * Creación de la lógica polimórfica (arreglos/listas) para recorrer e imprimir el estado de los recursos.
+* **Compañero 4 (Desarrollo Adicional y Documentación):**
+    * Desarrollo de una clase externa (ej. `Laptop` o `Proyector`) que implemente la interfaz `Prestable` directamente, sin heredar de `RecursoBiblioteca`, para demostrar la flexibilidad de las interfaces.
+    * Ejecución de pruebas finales y toma de capturas de pantalla.
+    * Redacción del PDF final con las evidencias y justificaciones de diseño.
+
+---
+
 ## Justificación de Decisiones de Diseño (POO)
 
-En el diseño de este Sistema de Biblioteca, se optó por una arquitectura basada en **Interfaces** y **Clases Abstractas** para maximizar la reutilización de código, aplicar correctamente el polimorfismo y respetar los principios de la Programación Orientada a Objetos.
+En este Sistema de Biblioteca se eligió una arquitectura con interfaces y clases abstractas para reutilizar código, aplicar polimorfismo y mantener buenas prácticas de POO. Aquí va la idea en corto y con un tono más relajado:
 
-A continuación, se detalla el razonamiento técnico detrás de la estructura principal:
+### 1. Clase abstracta `RecursoBiblioteca`
+Se usa porque representa algo general (un “tipo de recurso”) que en la vida real no existe por sí solo, solo existen sus versiones concretas como libros, revistas o DVDs.
+* Sirve para centralizar atributos comunes (título, autor, año, estado de préstamo).
+* Evita repetir código en las clases hijas.
+* Permite incluir métodos que funcionan igual para todos, como verificar si está prestado.
 
-### 1. ¿Por qué usar una Clase Abstracta para `RecursoBiblioteca`?
-Se definió `RecursoBiblioteca` como una clase abstracta porque representa una **relación de identidad ("Es un...")**.
-* **Abstracción del mundo real:** Físicamente no existe un "Recurso de Biblioteca" genérico en un estante; existen libros, revistas o DVDs concretos. Por lo tanto, no tiene sentido permitir que esta clase se instancie directamente.
-* **Reutilización de Estado (Atributos):** Todos los recursos comparten características comunes (`titulo`, `autor`, `anioPublicacion`, `prestado`). La clase abstracta nos permite centralizar estos atributos y sus constructores, evitando que las clases hijas (`Libro`, `Revista`, `DVD`) dupliquen este código.
-* **Comportamiento Base:** Permite implementar métodos que funcionan exactamente igual para todos los hijos (como los *getters* o el método `estaPrestado()`), reduciendo la redundancia.
+### 2. Interfaz `Prestable`
+Aquí la idea es definir lo que un objeto *puede hacer*, no lo que *es*.
+* Separa el comportamiento de prestar/devolver del resto del diseño.
+* Da flexibilidad: cualquier clase (aunque no sea un recurso bibliográfico, como una Laptop) puede implementar esta capacidad.
+* Cada clase decide cómo implementar las reglas (por ejemplo, distintos tiempos de préstamo).
 
-### 2. ¿Por qué usar una Interfaz para `Prestable`?
-Se definió `Prestable` como una interfaz porque representa un **contrato de capacidad ("Puede hacer...")**.
-* **Desacoplamiento del Comportamiento:** Prestar y devolver son acciones, no atributos físicos. Al aislar este comportamiento en una interfaz, garantizamos que cualquier clase que la implemente se comprometa a definir *cómo* se presta o se devuelve.
-* **Flexibilidad Futura:** En Java no existe la herencia múltiple de clases, pero sí de interfaces. Si en el futuro la biblioteca decide prestar elementos que NO son recursos bibliográficos (por ejemplo, `Laptops` o `SalasDeEstudio`), estas clases podrán implementar la interfaz `Prestable` sin necesidad de heredar de `RecursoBiblioteca`.
-* **Lógica Específica:** Los métodos `prestar()` y `devolver()` se dejaron abstractos en la interfaz porque cada recurso tiene reglas distintas. Por ejemplo, un `Libro` podría prestarse por 15 días, mientras que una `Revista` o un `DVD` de alta demanda podría prestarse solo por 3 días.
-
-### 3. Sinergia y Polimorfismo
-Al combinar ambos elementos (haciendo que la clase abstracta implemente la interfaz), logramos un sistema altamente escalable. En la clase `Main`, el uso de un arreglo de tipo `Prestable[]` o `RecursoBiblioteca[]` nos permite recorrer todos los objetos (sin importar si son libros o DVDs) y ejecutar sus métodos correspondientes, demostrando un uso limpio y eficiente del **polimorfismo**.
+### 3. Cómo trabajan juntos
+Al combinar la clase abstracta con la interfaz, el sistema se vuelve más flexible y fácil de escalar. Además, gracias al polimorfismo, se pueden manejar distintos tipos de recursos de forma uniforme (por ejemplo, meterlos todos en un mismo arreglo) sin complicaciones.
