@@ -1,4 +1,4 @@
-# Sistema de Gestión de Biblioteca 📚
+# Sistema de Gestión de Biblioteca
 
 Este proyecto es una simulación de un sistema de biblioteca desarrollado en Java, aplicando los pilares de la Programación Orientada a Objetos (OOP), específicamente el uso de Clases Abstractas, Interfaces y Polimorfismo.
 
