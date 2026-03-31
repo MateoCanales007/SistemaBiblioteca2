@@ -13,11 +13,11 @@ Para mantener un flujo de trabajo ordenado en GitHub, las tareas se han dividido
 * **ANDER HIZO:**
     * Desarrollo de las clases concretas `Libro` y `Revista`.
     * Implementación de la lógica específica de préstamos y devoluciones para estos recursos bibliográficos.
-* **Compañero 3 (Desarrollo y Lógica Principal):**
+* **ELIAZAR HIZO (Desarrollo y Lógica Principal):**
     * Desarrollo de la clase concreta `DVD`.
     * Desarrollo de la clase `Main`.
     * Creación de la lógica polimórfica (arreglos/listas) para recorrer e imprimir el estado de los recursos.
-* **Compañero 4 (Desarrollo Adicional y Documentación):**
+* **VICTOR HIZO (Desarrollo Adicional y Documentación):**
     * Desarrollo de una clase externa (ej. `Laptop` o `Proyector`) que implemente la interfaz `Prestable` directamente, sin heredar de `RecursoBiblioteca`, para demostrar la flexibilidad de las interfaces.
     * Ejecución de pruebas finales y toma de capturas de pantalla.
     * Redacción del PDF final con las evidencias y justificaciones de diseño.
