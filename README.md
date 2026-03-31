@@ -10,7 +10,7 @@ Para mantener un flujo de trabajo ordenado en GitHub, las tareas se han dividido
     * Desarrollo de la interfaz base `Prestable`.
     * Desarrollo de la clase abstracta `RecursoBiblioteca`.
     * *Responsabilidad:* Revisión y unión (Merge) de todas las ramas al `main` para evitar conflictos.
-* **Compañero 2 (Desarrollo Core):**
+* **ANDER HIZO:**
     * Desarrollo de las clases concretas `Libro` y `Revista`.
     * Implementación de la lógica específica de préstamos y devoluciones para estos recursos bibliográficos.
 * **Compañero 3 (Desarrollo y Lógica Principal):**
